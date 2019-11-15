@@ -1,0 +1,87 @@
+﻿@model SearchData
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using PagedList.Core.Mvc;
+
+<link rel="stylesheet" href="~/Content/PagedList.css" />
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="appointment">Appointment Date</label>
+        @Html.TextBoxFor(model => model.DateTime, new { @class = "form-control", name = "date", placeholder = "Appointment Time", type = "date", id = "appointment" })
+    </div>
+    <div class="form-group">
+        <label for="petName">Pet Name</label>
+        @Html.TextBoxFor(model => model.PetName, new { @class = "form-control", name = "petName", placeholder = "Pets Name", id = "petName" })
+    </div>
+    <div class="form-group">
+        <label for="ownersName">Owners Name</label>
+        @Html.TextBoxFor(model => model.OwnersName, new { @class = "form-control", name = "ownersName", placeholder = "Owners Name", id = "ownersName" })
+    </div>
+    <div class="form-group">
+        <label for="contactDetails">Contact Details</label>
+        @Html.TextBoxFor(model => model.Contact, new { @class = "form-control", name = "contact", placeholder = "Contact Details", id = "contactDetails" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Appointment Date/Time
+        </th>
+        <th>
+            Pet Name
+        </th>
+        <th>
+            Owners Name
+        </th>
+        <th>
+            Perferd Contact
+        </th>
+    </tr>
+    @if (Model.AppointmentDetails.TotalItemCount == 0)
+    {
+        <tr>
+            <td colspan="4">
+                <h3>No Appointments Found</h3>
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var appointment in Model.AppointmentDetails)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => appointment.Appointment)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => appointment.PetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => appointment.OwnersName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => appointment.PreferedContactDetails)
+                </td>
+            </tr>
+        }
+    }
+</table>
+@{
+    var routeData = new Dictionary<string, string>();
+    routeData.Add("dateTime", Model.DateTime);
+    routeData.Add("petName", Model.PetName);
+    routeData.Add("ownersName", Model.OwnersName);
+    routeData.Add("contact", Model.Contact);
+}
+<pager class="pager-container" list="@Model.AppointmentDetails" options="@PagedListRenderOptions.TwitterBootstrapPager" asp-action="Index" asp-controller="Home"
+       param-page-number="pageNumber" asp-all-route-data="routeData" />
+
+
