@@ -11971,11 +11971,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Code\\Test\\NetVet\\NetVet.csproj",
+      "projectUniqueName": "B:\\Code\\VictorionTest\\NetVet\\NetVet.csproj",
       "projectName": "NetVet",
-      "projectPath": "B:\\Code\\Test\\NetVet\\NetVet.csproj",
+      "projectPath": "B:\\Code\\VictorionTest\\NetVet\\NetVet.csproj",
       "packagesPath": "C:\\Users\\One\\.nuget\\packages\\",
-      "outputPath": "B:\\Code\\Test\\NetVet\\obj\\",
+      "outputPath": "B:\\Code\\VictorionTest\\NetVet\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\One\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11991,8 +11991,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "B:\\Code\\Test\\NetVet.Domain\\NetVet.Domain.csproj": {
-              "projectPath": "B:\\Code\\Test\\NetVet.Domain\\NetVet.Domain.csproj"
+            "B:\\Code\\VictorionTest\\NetVet.Domain\\NetVet.Domain.csproj": {
+              "projectPath": "B:\\Code\\VictorionTest\\NetVet.Domain\\NetVet.Domain.csproj"
             }
           }
         }
